@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>dev.rabbitmq</string>
+
+    <key>Boxen</key>
+    <dict>
+      <key>Description</key>
+      <string></string>
+
+      <key>Port</key>
+      <integer><%= scope.lookupvar "rabbitmq::config::port" %></integer>
+    </dict>
+
+    <key>Program</key>
+    <string><%= scope.lookupvar "rabbitmq::config::executable" %></string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+      <!-- need erl in the path -->
+      <key>PATH</key>
+      <string><%= scope.lookupvar "rabbitmq::config::path" %></string>
+      <!-- specify the path to the rabbitmq-env.conf file -->
+      <key>CONF_ENV_FILE</key>
+      <string><%= scope.lookupvar "rabbitmq::config::conf_file" %></string>
+      <key>RABBITMQ_NODE_PORT</key>
+      <string><%= scope.lookupvar "rabbitmq::config::port" %></string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true />
+
+    <key>UserName</key>
+    <string><%= scope.lookupvar "::luser" %></string>
+  </dict>
+</plist>
