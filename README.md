@@ -6,7 +6,7 @@ Puppet module to include my dotfiles when using boxen.
 
 ```puppet
 boxen::example { 'best example ever':
-  include dotfiles
+  include rabbitmq
 }
 ```
 
