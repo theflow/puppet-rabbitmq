@@ -15,4 +15,8 @@ class rabbitmq {
   service { "dev.rabbitmq":
     ensure => running
   }
+
+  file { "${boxen::config::envdir}/rabbitmq.sh":
+    content => template('rabbitmq/env.sh.erb')
+  }
 }
